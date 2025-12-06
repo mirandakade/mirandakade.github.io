@@ -3,20 +3,20 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Miranda Kade — Soft Ember Seduction</title>
+<title>Miranda Kade — Velvet Seduction</title>
 
 <style>
   body {
     margin: 0;
     padding: 0;
-    background: #1A0F1F; /* midnight shadow */
+    background: #000000; /* Black base */
     font-family: "Georgia", serif;
-    color: #E2B7D8; /* candle rose text */
+    color: #E2B7D8; /* Light lavender text */
     text-align: center;
     overflow-x: hidden;
   }
 
-  /* Soft glowing gradient background animation */
+  /* Deep purple moving glow */
   body::before {
     content: "";
     position: fixed;
@@ -25,39 +25,38 @@
     width: 200%;
     height: 200%;
     background: radial-gradient(circle at center,
-      rgba(90, 42, 104, 0.55),
-      rgba(27, 15, 31, 0.8) 60%
+      rgba(98, 45, 122, 0.55),
+      rgba(0, 0, 0, 0.9) 70%
     );
-    animation: glow 12s ease-in-out infinite alternate;
+    animation: glow 13s ease-in-out infinite alternate;
     z-index: -1;
   }
 
   @keyframes glow {
-    0% { transform: scale(1); opacity: 0.75; }
-    100% { transform: scale(1.1); opacity: 1; }
+    0% { transform: scale(1); opacity: 0.65; }
+    100% { transform: scale(1.15); opacity: 1; }
   }
 
   .container {
-    padding: 90px 20px 60px 20px;
+    padding: 90px 20px 60px;
   }
 
   h1 {
-    font-size: 3.5rem;
-    color: #E2B7D8;
+    font-size: 3.6rem;
+    margin-bottom: 10px;
     font-weight: 300;
-    margin-bottom: 12px;
-    letter-spacing: 1.5px;
+    color: #E7C1EC; /* Soft pink-lavender */
   }
 
   h1 span {
-    color: #5A2A68; /* plum */
+    color: #9A57B5; /* Deep sensual purple */
     font-weight: 400;
   }
 
   .tagline {
     font-size: 1.3rem;
-    margin-bottom: 50px;
-    color: #CFA6C8;
+    margin-bottom: 45px;
+    color: #D7AED2;
     opacity: 0.9;
     font-style: italic;
   }
@@ -69,13 +68,12 @@
     background: linear-gradient(
       to right,
       transparent,
-      #5A2A68,
+      #9A57B5,
       #3B1B44,
-      #5A2A68,
+      #9A57B5,
       transparent
     );
     margin: 45px auto;
-    opacity: 0.8;
   }
 
   .coming-soon {
@@ -85,10 +83,9 @@
     line-height: 1.5;
   }
 
-  /* Future social links */
   .socials {
     margin-top: 70px;
-    opacity: 0.75;
+    opacity: 0.8;
     font-size: 1.1rem;
   }
 
@@ -96,16 +93,15 @@
     color: #E2B7D8;
     margin: 0 15px;
     text-decoration: none;
-    border-bottom: 1px dotted #5A2A68;
+    border-bottom: 1px dotted #9A57B5;
     transition: 0.3s ease;
   }
 
   .socials a:hover {
-    color: #5A2A68;
+    color: #9A57B5;
     border-bottom-color: #E2B7D8;
   }
 
-  /* Fade-in animation */
   .fade {
     animation: fadeIn 2s ease-out forwards;
     opacity: 0;
@@ -114,7 +110,6 @@
   @keyframes fadeIn {
     to { opacity: 1; }
   }
-
 </style>
 </head>
 
@@ -133,10 +128,8 @@
       Come back soon…
     </p>
 
-    <!-- Future social icons (leave empty until launch) -->
     <div class="socials">
       <p>Follow the whispers…</p>
-      <!-- Replace '#' with your real links when ready -->
       <a href="#">Instagram</a>
       <a href="#">TikTok</a>
       <a href="#">Audio Haven</a>
