@@ -1,80 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Miranda Kade — Soft Ember</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Miranda Kade — Soft Ember Seduction</title>
 
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Helvetica Neue", sans-serif;
-      background-color: #0c0b10;
-      color: #f2e9ff;
-      text-align: center;
-    }
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background: #1A0F1F; /* midnight shadow */
+    font-family: "Georgia", serif;
+    color: #E2B7D8; /* candle rose text */
+    text-align: center;
+    overflow-x: hidden;
+  }
 
-    header {
-      padding: 60px 20px 20px;
-    }
+  /* Soft glowing gradient background animation */
+  body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at center,
+      rgba(90, 42, 104, 0.55),
+      rgba(27, 15, 31, 0.8) 60%
+    );
+    animation: glow 12s ease-in-out infinite alternate;
+    z-index: -1;
+  }
 
-    h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      letter-spacing: 1px;
-    }
+  @keyframes glow {
+    0% { transform: scale(1); opacity: 0.75; }
+    100% { transform: scale(1.1); opacity: 1; }
+  }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 600px;
-      margin: 10px auto 30px;
-      line-height: 1.6;
-      color: #d6c8e9;
-    }
+  .container {
+    padding: 90px 20px 60px 20px;
+  }
 
-    .divider {
-      width: 60px;
-      height: 2px;
-      background: #8a5dd1;
-      margin: 25px auto 40px;
-      opacity: 0.5;
-    }
+  h1 {
+    font-size: 3.5rem;
+    color: #E2B7D8;
+    font-weight: 300;
+    margin-bottom: 12px;
+    letter-spacing: 1.5px;
+  }
 
-    footer {
-      padding: 40px 0;
-      font-size: 0.9rem;
-      opacity: 0.6;
-    }
-  </style>
+  h1 span {
+    color: #5A2A68; /* plum */
+    font-weight: 400;
+  }
+
+  .tagline {
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+    color: #CFA6C8;
+    opacity: 0.9;
+    font-style: italic;
+  }
+
+  .divider {
+    width: 70vw;
+    max-width: 600px;
+    height: 2px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      #5A2A68,
+      #3B1B44,
+      #5A2A68,
+      transparent
+    );
+    margin: 45px auto;
+    opacity: 0.8;
+  }
+
+  .coming-soon {
+    font-size: 1.45rem;
+    color: #E2B7D8;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+
+  /* Future social links */
+  .socials {
+    margin-top: 70px;
+    opacity: 0.75;
+    font-size: 1.1rem;
+  }
+
+  .socials a {
+    color: #E2B7D8;
+    margin: 0 15px;
+    text-decoration: none;
+    border-bottom: 1px dotted #5A2A68;
+    transition: 0.3s ease;
+  }
+
+  .socials a:hover {
+    color: #5A2A68;
+    border-bottom-color: #E2B7D8;
+  }
+
+  /* Fade-in animation */
+  .fade {
+    animation: fadeIn 2s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+
+</style>
 </head>
 
 <body>
+  <div class="container fade">
+    <h1><span>Miranda</span> Kade</h1>
 
-<header>
-  <h1>Miranda Kade</h1>
-  <p>Soft Ember · Slow Burn · A Voice That Pulls You Closer</p>
-  <div class="divider"></div>
+    <div class="tagline">
+      A soft ember… a slow burn… a whisper meant only for you.
+    </div>
 
-  <p>
-    Welcome to the official home of Miranda Kade —  
-    intimate storytelling, velvet-warm audio,  
-    and the kind of slow-burn seduction  
-    that lingers long after the sound fades.
-  </p>
+    <div class="divider"></div>
 
-  <p>
-    Audio teasers & full experiences coming soon.
-  </p>
-</header>
+    <p class="coming-soon">
+      Seduction is under construction.<br>
+      Come back soon…
+    </p>
 
-<footer>
-  © <span id="year"></span> Miranda Kade · All Rights Reserved
-</footer>
-
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+    <!-- Future social icons (leave empty until launch) -->
+    <div class="socials">
+      <p>Follow the whispers…</p>
+      <!-- Replace '#' with your real links when ready -->
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">Audio Haven</a>
+    </div>
+  </div>
 </body>
 </html>
