@@ -3,139 +3,281 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Miranda Kade — Velvet Seduction</title>
+<title>Miranda Kade</title>
+<link rel="icon" href="favicon.ico">
 
 <style>
-  body {
+/* ---------------- BACKGROUND BREATHING ANIMATION ---------------- */
+body {
     margin: 0;
     padding: 0;
-    background: #000000; /* Black base */
     font-family: "Georgia", serif;
-    color: #E2B7D8; /* Light lavender text */
+    background: linear-gradient(180deg, #0d0d0f, #1b0023, #3e0057);
+    background-size: 350% 350%;
+    animation: breathe 16s ease-in-out infinite;
     text-align: center;
-    overflow-x: hidden;
-  }
+    color: #fff;
+    padding-top: 12vh;
+}
 
-  /* Deep purple moving glow */
-  body::before {
-    content: "";
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle at center,
-      rgba(98, 45, 122, 0.55),
-      rgba(0, 0, 0, 0.9) 70%
-    );
-    animation: glow 13s ease-in-out infinite alternate;
-    z-index: -1;
-  }
+@keyframes breathe {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
 
-  @keyframes glow {
-    0% { transform: scale(1); opacity: 0.65; }
-    100% { transform: scale(1.15); opacity: 1; }
-  }
-
-  .container {
-    padding: 90px 20px 60px;
-  }
-
-  h1 {
-    font-size: 3.6rem;
-    margin-bottom: 10px;
-    font-weight: 300;
-    color: #E7C1EC; /* Soft pink-lavender */
-  }
-
-  h1 span {
-    color: #9A57B5; /* Deep sensual purple */
-    font-weight: 400;
-  }
-
-  .tagline {
-    font-size: 1.3rem;
-    margin-bottom: 45px;
-    color: #D7AED2;
-    opacity: 0.9;
-    font-style: italic;
-  }
-
-  .divider {
-    width: 70vw;
-    max-width: 600px;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      transparent,
-      #9A57B5,
-      #3B1B44,
-      #9A57B5,
-      transparent
-    );
-    margin: 45px auto;
-  }
-
-  .coming-soon {
-    font-size: 1.45rem;
-    color: #E2B7D8;
-    opacity: 0.85;
-    line-height: 1.5;
-  }
-
-  .socials {
-    margin-top: 70px;
-    opacity: 0.8;
-    font-size: 1.1rem;
-  }
-
-  .socials a {
-    color: #E2B7D8;
-    margin: 0 15px;
-    text-decoration: none;
-    border-bottom: 1px dotted #9A57B5;
-    transition: 0.3s ease;
-  }
-
-  .socials a:hover {
-    color: #9A57B5;
-    border-bottom-color: #E2B7D8;
-  }
-
-  .fade {
-    animation: fadeIn 2s ease-out forwards;
+/* ---------------- SIGNATURE LOGO ---------------- */
+.signature {
+    font-family: "Brush Script MT", cursive;
+    font-size: 4rem;
+    color: #f7d6ff;
     opacity: 0;
-  }
+    animation: fadeIn 2.8s ease forwards;
+    position: relative;
+    margin-bottom: 0.5rem;
+}
 
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
+.signature::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255,150,100,0.25), rgba(0,0,0,0));
+    border-radius: 50%;
+    animation: emberPulse 6s infinite ease-in-out;
+    z-index: -1;
+}
+
+@keyframes emberPulse {
+    0% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.55; transform: translate(-50%, -50%) scale(1.15); }
+    100% { opacity: 0.25; transform: translate(-50%, -50%) scale(1); }
+}
+
+/* ---------------- SUBTITLE ---------------- */
+.subtitle {
+    font-size: 1.2rem;
+    opacity: 0;
+    animation: fadeIn 3.2s ease forwards;
+    animation-delay: 1.4s;
+    margin-bottom: 2.2rem;
+}
+
+/* ---------------- FADE IN ---------------- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------------- MAIN TEXT ---------------- */
+.section {
+    width: 88%;
+    max-width: 720px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 2.8s;
+    margin-bottom: 2.8rem;
+}
+
+/* ---------------- NOTICE BLOCK ---------------- */
+.notice {
+    font-style: italic;
+    margin-top: 2.2rem;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 4s;
+}
+
+/* ---------------- LINK BAR ---------------- */
+.links {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 5.2s;
+    margin-bottom: 3rem;
+}
+
+.links a {
+    text-decoration: none;
+    color: #e8caff;
+    margin: 0 14px;
+    font-size: 1.15rem;
+    transition: 0.3s ease;
+}
+
+.links a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 10px #c985ff;
+}
+
+/* ---------------- TEASER AUDIO BOX ---------------- */
+.teaser {
+    margin-top: 2rem;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 6s;
+}
+
+.teaser button {
+    background-color: #2d003a;
+    border: 1px solid #8d5fb3;
+    color: #f7e6ff;
+    padding: 12px 26px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.teaser button:hover {
+    background-color: #3b004e;
+    transform: scale(1.03);
+}
+
+/* ---------------- INNER ROOM ---------------- */
+.inner-room-container {
+    margin-top: 3rem;
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 7s;
+}
+
+.password-box input {
+    padding: 12px;
+    width: 240px;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.password-box button {
+    padding: 12px 22px;
+    background-color: #350044;
+    color: #e8d1ff;
+    border: 1px solid #8748b5;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.password-box button:hover {
+    transform: scale(1.05);
+}
+
+/* Hidden inner content */
+#innerContent {
+    display: none;
+    margin-top: 1.8rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* ---------------- FOOTER ---------------- */
+.footer {
+    opacity: 0.6;
+    margin-top: 4rem;
+    margin-bottom: 2.5rem;
+    font-size: 0.9rem;
+}
 </style>
 </head>
 
 <body>
-  <div class="container fade">
-    <h1><span>Miranda</span> Kade</h1>
 
-    <div class="tagline">
-      A soft ember… a slow burn… a whisper meant only for you.
+<!-- SIGNATURE -->
+<div class="signature">Miranda Kade</div>
+
+<!-- SUBTITLE -->
+<div class="subtitle">A soft ember… a slow burn… a whisper meant only for you.</div>
+
+<!-- MAIN SECTION -->
+<div class="section">
+    Welcome to the official home of <strong>Miranda Kade</strong> —
+    intimate storytelling, velvet-warm audio, and the kind of slow-burn seduction that stays with you long after the sound fades.
+    <br><br>
+    Here, desire moves slowly… intentionally…  
+    drawing you closer one breath, one whisper at a time.
+</div>
+
+<!-- NOTICE -->
+<div class="notice">
+    Seduction is under construction.  
+    Premium content coming soon…  
+    Come back soon — there’s more waiting for you in the dark.
+</div>
+
+<!-- LINKS -->
+<div class="links">
+    <a href="#">Instagram</a>
+    <a href="#">TikTok</a>
+    <a href="#">Audio Haven</a>
+</div>
+
+<!-- AUDIO TEASER -->
+<div class="teaser">
+    <button onclick="playTeaser()">▶ A taste…?</button>
+</div>
+
+<audio id="teaserAudio">
+    <source src="placeholder-chime.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function playTeaser() {
+    document.getElementById("teaserAudio").play();
+}
+</script>
+
+<!-- INNER ROOM -->
+<div class="inner-room-container">
+    <h2>Enter the Inner Room</h2>
+
+    <div class="password-box">
+        <input type="password" id="pw" placeholder="Enter password…" />
+        <br>
+        <button onclick="unlock()">Enter</button>
     </div>
 
-    <div class="divider"></div>
-
-    <p class="coming-soon">
-      Seduction is under construction.<br>
-      Come back soon…
-    </p>
-
-    <div class="socials">
-      <p>Follow the whispers…</p>
-      <a href="#">Instagram</a>
-      <a href="#">TikTok</a>
-      <div style="margin-top: 40px;">
-      <a href="audiohaven.html" style="color:#b794f6; font-size:1.2rem; text-decoration:none;">Audio Haven</a>
-        </div>
+    <div id="innerContent">
+        <p>
+            You found it…  
+            the hidden room reserved only for those who know where to look.
+            <br><br>
+            Soon, this space will hold private previews, unreleased audio,
+            and deeper whispers meant only for your ears.
+        </p>
     </div>
-  </div>
+</div>
+
+<script>
+function unlock() {
+    const pw = document.getElementById("pw").value;
+    if (pw === "velvetfire") {
+        document.getElementById("innerContent").style.display = "block";
+    } else {
+        alert("Incorrect password.");
+    }
+}
+</script>
+
+<!-- VISITOR COUNTER -->
+<script>
+fetch("https://api.countapi.xyz/hit/mirandakadeofficial.com/visits")
+.then(res => res.json())
+.then(res => console.log("Visits:", res.value));
+</script>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2025 Miranda Kade • All Rights Reserved.
+</div>
+
 </body>
 </html>
