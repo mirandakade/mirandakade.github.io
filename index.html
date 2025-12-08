@@ -231,7 +231,18 @@ body {
     
 <script>
 function playTeaser() {
-    document.getElementById("teaserAudio").play();
+    const audio = document.getElementById("teaserAudio");
+    audio.volume = 0;        // Start silent
+    audio.play();
+
+    // Fade in over 1.5 seconds
+    let fade = setInterval(() => {
+        if (audio.volume < 1) {
+            audio.volume += 0.02;  // Smooth gradual increase
+        } else {
+            clearInterval(fade);
+        }
+    }, 30);  // Runs every 30ms
 }
 </script>
 
