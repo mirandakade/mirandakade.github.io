@@ -1,0 +1,25 @@
+.mk-section {
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 0 1rem;
+}
+
+.mk-subtitle {
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+.mk-audio-grid,
+.mk-audio-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.mk-audio p {
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.mk-audio audio {
+  width: 100%;
+}
