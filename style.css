@@ -110,3 +110,80 @@
   border-color: #b53aff;
   box-shadow: 0 0 20px rgba(181, 58, 255, 0.2);
 }
+
+
+/* HERO SECTION – AUDIO STORIES */
+.hero-audiostories {
+  background: radial-gradient(circle at top left, #303a70 0%, #050611 55%, #050609 100%);
+  padding: 3rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-size: 0.8rem;
+  color: #b3bee9;
+  margin-bottom: 0.4rem;
+}
+
+.hero-title {
+  font-size: 2.4rem;
+  margin: 0 0 0.6rem;
+  color: #f6f7ff;
+}
+
+.hero-subtitle {
+  max-width: 40rem;
+  font-size: 1rem;
+  color: #c0c6e8;
+}
+
+/* PAGE MAIN WRAPPER (if not already set) */
+.page-main {
+  max-width: 960px;
+  margin: 2.5rem auto 3.5rem;
+  padding: 0 1.5rem;
+}
+
+/* EPISODES LIST */
+.episodes-list {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.episode-card {
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.episode-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+}
+
+.episode-meta {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  color: #aab1d4;
+}
+
+.episode-desc {
+  margin: 0 0 0.9rem;
+  font-size: 0.95rem;
+  color: #c4caea;
+}
+
+.episode-player {
+  width: 100%;
+}
+
