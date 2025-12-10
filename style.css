@@ -187,3 +187,247 @@
   width: 100%;
 }
 
+
+/* ===== OSC AUDIO STORIES – PAGE WRAPPER ===== */
+
+.osc-audio-body {
+  background: #05060a;
+  color: #f5f6ff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* HEADER */
+
+.osc-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: linear-gradient(to right, #05060a, #0b0d18);
+}
+
+.osc-header-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.osc-logo-lockup {
+  display: flex;
+  flex-direction: column;
+}
+
+.osc-logo-text {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.osc-logo-tagline {
+  font-size: 0.8rem;
+  color: #a5acd4;
+}
+
+.osc-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.osc-nav a {
+  text-decoration: none;
+  font-size: 0.9rem;
+  color: #d8dcff;
+  padding-bottom: 0.15rem;
+  border-bottom: 1px solid transparent;
+  transition: color 0.18s ease, border-color 0.18s ease;
+}
+
+.osc-nav a:hover {
+  color: #ffffff;
+  border-color: #5fd0ff;
+}
+
+/* HERO */
+
+.osc-hero-audio {
+  background: radial-gradient(circle at top left, #283465 0%, #05060a 55%, #02030a 100%);
+  padding: 2.8rem 1.5rem 2.6rem;
+}
+
+.osc-hero-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.osc-hero-kicker {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  color: #b3bee9;
+  margin-bottom: 0.4rem;
+}
+
+.osc-hero-title {
+  font-size: 2.2rem;
+  margin: 0 0 0.6rem;
+}
+
+.osc-hero-subtitle {
+  max-width: 40rem;
+  font-size: 0.98rem;
+  color: #c4caee;
+  line-height: 1.6;
+}
+
+/* MAIN LAYOUT */
+
+.osc-main {
+  max-width: 960px;
+  margin: 2.3rem auto 3.2rem;
+  padding: 0 1.5rem;
+}
+
+.osc-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 14px;
+  padding: 1.6rem 1.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  margin-bottom: 1.6rem;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.45);
+}
+
+.osc-card-soft {
+  background: rgba(255, 255, 255, 0.015);
+}
+
+.osc-card h2 {
+  font-size: 1.25rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.osc-card p {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: #d2d4f3;
+}
+
+.osc-card a {
+  color: #7fd4ff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(127, 212, 255, 0.4);
+}
+
+.osc-card a:hover {
+  border-color: rgba(127, 212, 255, 0.9);
+}
+
+/* CARD HEADING */
+
+.osc-card-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.osc-card-tagline {
+  font-size: 0.86rem;
+  color: #a9b0de;
+}
+
+/* EPISODES LIST */
+
+.osc-episodes {
+  display: grid;
+  gap: 1.1rem;
+  margin-top: 0.4rem;
+}
+
+.osc-episode {
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem 1.15rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.osc-episode-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.05rem;
+}
+
+.osc-episode-meta {
+  margin: 0 0 0.5rem;
+  font-size: 0.82rem;
+  color: #a6aed9;
+}
+
+.osc-episode-desc {
+  margin: 0 0 0.7rem;
+  font-size: 0.92rem;
+  color: #ced1f3;
+}
+
+/* PLAYER SHELL (MINIMALIST LOOK) */
+
+.osc-player-shell {
+  background: rgba(5, 8, 20, 0.9);
+  border-radius: 10px;
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(118, 186, 255, 0.35);
+}
+
+.osc-audio-player {
+  width: 100%;
+}
+
+/* MINI-SERIES HINT TEXT */
+
+.osc-mini-hint {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  color: #bfc4f0;
+}
+
+/* FOOTER */
+
+.osc-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1rem 1.5rem 1.4rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #9fa5cc;
+  background: #05060a;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 700px) {
+  .osc-header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .osc-nav ul {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .osc-hero-title {
+    font-size: 1.9rem;
+  }
+
+  .osc-main {
+    margin-top: 1.8rem;
+  }
+
+  .osc-card {
+    padding: 1.3rem 1.2rem;
+  }
+}
+
