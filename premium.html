@@ -1,511 +1,216 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Miranda Kade – The Whisper Vault</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <style>
-    :root {
-      --bg-main: #050309;
-      --bg-panel: rgba(9, 0, 20, 0.82);
-      --accent: #e4b8ff;
-      --accent-soft: #b87dff;
-      --gold: #f1c47b;
-      --text-soft: #e7d8ff;
-      --error: #ff9ab3;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Georgia", serif;
-      color: #ffffff;
-      background: radial-gradient(circle at top, #2b0044, #050309 50%, #020008 100%);
-      background-size: 200% 200%;
-      animation: bgShift 22s ease-in-out infinite;
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 8vh 16px;
-    }
-
-    @keyframes bgShift {
-      0% { background-position: 0% 0%; }
-      50% { background-position: 100% 100%; }
-      100% { background-position: 0% 0%; }
-    }
-
-    .container {
-      width: 100%;
-      max-width: 880px;
-      position: relative;
-    }
-
-    /* Password Gate */
-
-    .gate {
-      background: linear-gradient(
-        145deg,
-        rgba(10, 0, 20, 0.96),
-        rgba(3, 0, 8, 0.96)
-      );
-      border: 1px solid rgba(213, 170, 255, 0.4);
-      box-shadow: 0 0 35px rgba(90, 0, 130, 0.7);
-      border-radius: 18px;
-      padding: 32px 24px 28px;
-      text-align: center;
-      animation: fadeIn 1.8s ease forwards;
-    }
-
-    .gate-title {
-      font-size: 1.7rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-      color: var(--accent);
-    }
-
-    .gate-sub {
-      font-size: 0.98rem;
-      opacity: 0.8;
-      margin-bottom: 1.6rem;
-    }
-
-    .gate-highlight {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .gate-input-row {
-      margin-bottom: 0.9rem;
-    }
-
-    .gate-input {
-      width: 240px;
-      max-width: 100%;
-      padding: 11px 12px;
-      border-radius: 999px;
-      border: 1px solid rgba(232, 206, 255, 0.6);
-      background: rgba(10, 0, 20, 0.85);
-      color: var(--text-soft);
-      outline: none;
-      text-align: center;
-      font-size: 0.98rem;
-    }
-
-    .gate-input::placeholder {
-      color: rgba(202, 178, 240, 0.7);
-    }
-
-    .gate-button {
-      margin-top: 10px;
-      padding: 10px 26px;
-      border-radius: 999px;
-      border: 1px solid var(--gold);
-      background: radial-gradient(circle at top, #3c002f, #1a0018);
-      color: #ffe9c7;
-      cursor: pointer;
-      font-size: 0.98rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: 0.25s ease;
-    }
-
-    .gate-button:hover {
-      background: radial-gradient(circle at top, #540041, #22001d);
-      box-shadow: 0 0 14px rgba(241, 196, 123, 0.4);
-      transform: translateY(-1px);
-    }
-
-    .gate-error {
-      height: 1.3rem;
-      margin-top: 0.3rem;
-      font-size: 0.9rem;
-      color: var(--error);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .gate-note {
-      margin-top: 1.1rem;
-      font-size: 0.88rem;
-      opacity: 0.7;
-    }
-
-    /* Inner Content */
-
-    .premium {
-      display: none;
-      background: radial-gradient(circle at top, #210032, #050309 60%);
-      border-radius: 20px;
-      border: 1px solid rgba(226, 186, 255, 0.45);
-      box-shadow: 0 0 35px rgba(88, 0, 132, 0.9);
-      padding: 30px 24px 26px;
-      animation: fadeInSoft 1.5s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(18px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeInSoft {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .premium-header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 1.9rem;
-      text-align: center;
-    }
-
-    .premium-title {
-      font-size: 1.55rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 0.35rem;
-    }
-
-    .premium-tagline {
-      font-size: 1.02rem;
-      color: var(--text-soft);
-      opacity: 0.9;
-    }
-
-    .premium-tagline span {
-      color: var(--gold);
-    }
-
-    .premium-body {
-      font-size: 1rem;
-      line-height: 1.7;
-      color: var(--text-soft);
-      margin-bottom: 2rem;
-    }
-
-    .divider {
-      height: 1px;
-      background: linear-gradient(
-        90deg,
-        rgba(0, 0, 0, 0),
-        rgba(245, 206, 141, 0.8),
-        rgba(0, 0, 0, 0)
-      );
-      margin: 1.6rem 0 1.9rem;
-    }
-
-    .section-label {
-      font-size: 0.9rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(250, 221, 179, 0.88);
-      margin-bottom: 0.6rem;
-    }
-
-    .audio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.3rem;
-      margin-bottom: 2.1rem;
-    }
-
-    .audio-card {
-      background: var(--bg-panel);
-      border-radius: 14px;
-      padding: 14px 14px 16px;
-      border: 1px solid rgba(206, 167, 255, 0.35);
-      box-shadow: 0 0 16px rgba(70, 0, 110, 0.7);
-      text-align: left;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .audio-label {
-      font-size: 0.86rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(232, 200, 255, 0.8);
-      margin-bottom: 0.2rem;
-    }
-
-    .audio-title {
-      font-size: 1.02rem;
-      margin-bottom: 0.4rem;
-      color: #ffffff;
-    }
-
-    .audio-desc {
-      font-size: 0.9rem;
-      opacity: 0.85;
-      margin-bottom: 0.7rem;
-    }
-
-    .audio-meta {
-      font-size: 0.82rem;
-      opacity: 0.7;
-      color: rgba(255, 214, 191, 0.9);
-    }
-
-    .audio-locked {
-      position: absolute;
-      top: 10px;
-      right: 12px;
-      font-size: 0.8rem;
-      color: rgba(241, 196, 123, 0.9);
-      background: rgba(4, 0, 8, 0.7);
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(241, 196, 123, 0.7);
-    }
-
-    .note-soft {
-      font-size: 0.9rem;
-      opacity: 0.78;
-      margin-top: 0.4rem;
-    }
-
-    .signature {
-      margin-top: 2.2rem;
-      text-align: right;
-      font-size: 1.4rem;
-      font-family: "Brush Script MT", cursive;
-      color: var(--gold);
-    }
-
-    .footer {
-      text-align: center;
-      margin-top: 1.5rem;
-      font-size: 0.8rem;
-      opacity: 0.6;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        padding-top: 6vh;
-      }
-      .gate, .premium {
-        padding: 24px 18px 22px;
-      }
-    }
-  </style>
+  <title>The Whisper Vault • Miranda Kade</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
-  <div class="container">
+<body class="vault-page">
 
-    <!-- Password Gate -->
-    <div id="gate" class="gate">
-      <div class="gate-title">The Whisper Vault</div>
-      <div class="gate-sub">
-        There’s a door in my world that doesn’t open for everyone.<br />
-        If you’re standing here, it’s because
-        <span class="gate-highlight">I trusted you with a key.</span>
+  <!-- HEADER -->
+  <header class="vault-header">
+    <div class="vault-header-inner">
+      <a href="index.html" class="vault-logo">Miranda Kade</a>
+      <nav class="vault-nav">
+        <a href="index.html">Home</a>
+        <a href="audio.html">Audio Haven</a>
+        <a href="boutique.html">Boutique</a>
+        <a href="premium.html" aria-current="page">The Whisper Vault</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main class="vault-main">
+    <section class="vault-hero">
+      <div class="vault-lock">
+        <span class="vault-lock-bar"></span>
+        <span class="vault-lock-body"></span>
       </div>
+      <h1>The Whisper Vault</h1>
+      <p class="vault-tagline">
+        A private collection of slow-burn, intimate audio experiences — reserved for those who choose to enter.
+      </p>
+      <p class="vault-subnote">
+        Elegant. Romantic. Sensual. Always allusion-based. Always just for you.
+      </p>
+    </section>
 
-      <div class="gate-input-row">
+    <!-- PASSWORD GATE -->
+    <section class="vault-access">
+      <h2>Enter With Your Password</h2>
+      <p>
+        Founding Members, use the password from your welcome email to unlock The Whisper Vault.
+      </p>
+
+      <form id="vault-form" class="vault-form">
+        <label for="vault-password" class="vault-label">Vault Password</label>
         <input
-          id="pwInput"
-          class="gate-input"
           type="password"
-          placeholder="Enter your key…"
-          autocomplete="off"
+          id="vault-password"
+          class="vault-input"
+          autocomplete="current-password"
+          placeholder="Enter password"
         />
-      </div>
-      <button class="gate-button" onclick="unlockPremium()">
-        Unlock the Vault
-      </button>
+        <button type="submit" class="vault-btn-primary">Unlock The Vault</button>
+        <p id="vault-error" class="vault-error" aria-live="polite"></p>
+      </form>
 
-      <div id="gateError" class="gate-error"></div>
+      <p class="vault-access-note">
+        Not a member yet? Membership details are below.
+      </p>
+    </section>
 
-      <div class="gate-note">
-        If you’ve misplaced your key,  
-        check the last message I sent you… or ask me gently for another.
-      </div>
-    </div>
+    <!-- VAULT CONTENT (HIDDEN UNTIL PASSWORD IS CORRECT) -->
+    <section class="vault-content" aria-hidden="true">
+      <h2>Inside The Whisper Vault</h2>
+      <p class="vault-intro-text">
+        Once you’re inside, you don’t just listen — you linger.
+        The Vault is where slow-burn stories, whispered monologues, and intimate guided experiences live together in one
+        private space.
+      </p>
 
-    <!-- Whisper Vault Content -->
-    <div id="premium" class="premium">
+      <div class="vault-grid">
+        <!-- CARD 1 -->
+        <article class="vault-card">
+          <h3>Whisper Monologues</h3>
+          <p>
+            Short, intimate pieces designed to feel like I’m right beside you — inviting, guiding, softly holding your
+            attention.
+          </p>
+          <ul class="vault-list">
+            <li>Soft, close, breathy tone</li>
+            <li>Emotional, romantic, slowly sensual</li>
+            <li>2–5 minutes each — perfect for replay</li>
+          </ul>
+        </article>
 
-<section class="mk-section mk-vault-area">
-  <h2>The Whisper Vault</h2>
-  <p class="mk-subtitle">If you’re here… you were meant to be.</p>
+        <!-- CARD 2 -->
+        <article class="vault-card">
+          <h3>Slow Burn Preludes</h3>
+          <p>
+            Longer, cinematic experiences that build slowly — more story, more feeling, more tension without explicit
+            detail.
+          </p>
+          <ul class="vault-list">
+            <li>6–12 minute guided experiences</li>
+            <li>Romantic tension and emotional intimacy</li>
+            <li>Perfect for quiet, private listening</li>
+          </ul>
+        </article>
 
-  <div class="mk-audio">
-    <p>You made it. Good.</p>
-    <audio controls preload="none">
-      <source src="audio/you made it good teaser.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-
-  <div class="mk-audio">
-    <p>This is where curiosity leads you.</p>
-    <audio controls preload="none">
-      <source src="audio/this is where curiosity teaser.mp3" type="audio/mpeg">
-    </audio>
-  </div>
-</section>
-      
-      <div class="premium-header">
-        <div class="premium-title">The Whisper Vault</div>
-        <div class="premium-tagline">
-          A locked room for slower breaths, softer words, and
-          <span>everything I don’t leave out in the open.</span>
-        </div>
-      </div>
-
-      <div class="premium-body">
-        You’re not in the hallway anymore. You’re inside—inside the place where
-        I keep the longer nights, the deeper confessions, and the kind of
-        whispers that never make it onto the free pages.
-        <br /><br />
-        Here, you’re a keyholder. That means you’re allowed to linger. To replay.
-        To let my voice wrap around the parts of you that only wake up when the
-        door is closed and the world is very, very far away.
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- Keyholder Entry -->
-      <div class="section-label">Keyholder Entry</div>
-      <div class="audio-grid">
-        <div class="audio-card">
-          <div class="audio-locked">Locked</div>
-          <div class="audio-label">Vault Track 01</div>
-          <div class="audio-title">Follow Me Deeper</div>
-          <div class="audio-desc">
-            A slow, deliberate descent—breath by breath, word by word—into the
-            part of you that only answers to my voice.
-          </div>
-          <div class="audio-meta">
-            Coming soon • First keyholder session • Headphones only
-          </div>
-        </div>
+        <!-- CARD 3 -->
+        <article class="vault-card">
+          <h3>Early Access & Extras</h3>
+          <p>
+            Founding members get early access to new releases, extended cuts, and occasional alternate endings.
+          </p>
+          <ul class="vault-list">
+            <li>First listen on new releases</li>
+            <li>Bonus variations and extended endings</li>
+            <li>Selected pieces not available in the Boutique</li>
+          </ul>
+        </article>
       </div>
 
-      <!-- Deep Vault Sessions -->
-      <div class="section-label">Deep Vault Sessions</div>
-      <div class="audio-grid">
-        <div class="audio-card">
-          <div class="audio-locked">Locked</div>
-          <div class="audio-label">Session</div>
-          <div class="audio-title">The Long Night</div>
-          <div class="audio-desc">
-            A full-length, slow-burn audio—soft commands, warm reassurance, and
-            the privilege of not having to think for a while.
-          </div>
-          <div class="audio-meta">
-            Extended format • Deep relaxation • MK at your pace
-          </div>
+      <!-- LATEST ADDITIONS (PLACEHOLDERS FOR NOW) -->
+      <section class="vault-latest">
+        <h2>Latest Additions</h2>
+        <p class="vault-latest-note">
+          These are example placeholders — we’ll swap in your real audio as you record.
+        </p>
+
+        <div class="vault-episode">
+          <h3>Whisper Monologue • “Come Closer”</h3>
+          <p><em>Soft invitation • 2–3 minutes</em></p>
+          <audio controls>
+            <source src="audio/whisper-come-closer.mp3" type="audio/mpeg" />
+          </audio>
         </div>
 
-        <div class="audio-card">
-          <div class="audio-locked">Locked</div>
-          <div class="audio-label">Session</div>
-          <div class="audio-title">You Stay, I Talk</div>
-          <div class="audio-desc">
-            Confessional-style whisper session: I talk, you listen, and every
-            other voice in your head goes quiet until there’s only mine.
-          </div>
-          <div class="audio-meta">
-            Intimate • Confessional tone • Private feed
-          </div>
-        </div>
-      </div>
-
-      <!-- Forbidden Editions -->
-      <div class="section-label">Forbidden Editions</div>
-      <div class="audio-grid">
-        <div class="audio-card">
-          <div class="audio-locked">Locked</div>
-          <div class="audio-label">Fantasy</div>
-          <div class="audio-title">You Shouldn’t Want This</div>
-          <div class="audio-desc">
-            Temptation, restraint, and that delicious line between
-            “I shouldn’t…” and “I already did.”
-          </div>
-          <div class="audio-meta">
-            Members-only • Sensual storytelling
-          </div>
+        <div class="vault-episode">
+          <h3>Slow Burn Prelude • “The Moment Before”</h3>
+          <p><em>Cinematic buildup • 6–8 minutes</em></p>
+          <audio controls>
+            <source src="audio/slowburn-the-moment-before.mp3" type="audio/mpeg" />
+          </audio>
         </div>
 
-        <div class="audio-card">
-          <div class="audio-locked">Locked</div>
-          <div class="audio-label">Special</div>
-          <div class="audio-title">Midnight MK</div>
-          <div class="audio-desc">
-            Recorded late, when I’m soft, tired in the best way, and far too
-            honest for the daytime rooms.
-          </div>
-          <div class="audio-meta">
-            Seasonal drops • Limited-time access
-          </div>
+        <div class="vault-episode">
+          <h3>Whisper Bonus • “Stay With Me Tonight”</h3>
+          <p><em>Short, addictive replay • 1–2 minutes</em></p>
+          <audio controls>
+            <source src="audio/whisper-stay-with-me-tonight.mp3" type="audio/mpeg" />
+          </audio>
         </div>
-      </div>
+      </section>
 
-      <div class="note-soft">
-        As you read this, imagine each of these already waiting for you—
-        files queued, headphones on, door locked, lights low.  
-        They’re coming. I don’t leave vaults empty for long.
-      </div>
+      <!-- MEMBERSHIP DETAILS -->
+      <section class="vault-membership">
+        <h2>Membership Details</h2>
+        <p>
+          <strong>The Whisper Vault</strong> is a private, members-only collection for those who want more than a
+          preview.
+          It’s designed to be a quiet, sensual corner of the internet that you can return to whenever you need it.
+        </p>
 
-      <div class="signature">— Miranda</div>
+        <div class="vault-membership-box">
+          <p class="vault-price">
+            Founding Member Rate: <span>$5.99/month</span>
+          </p>
+          <p>
+            Standard rate will be <strong>$7.99/month</strong> after the founding window closes. Founding members keep
+            their
+            rate as long as they stay subscribed.
+          </p>
+          <p class="vault-membership-note">
+            Cancel anytime. Rejoin anytime. When you purchase any separate premium audio or bundles, those are yours to
+            keep,
+            even if you leave The Vault.
+          </p>
+        </div>
 
-      <div class="footer">
-        Keep this link and your key to yourself.  
-        The Vault stays between us.
-      </div>
-    </div>
-  </div>
+        <p class="vault-cta-note">
+          Membership sign-up will be handled through your chosen payment platform. This page will update with the live
+          “Join
+          The Whisper Vault” button when you’re ready to launch.
+        </p>
+      </section>
+    </section>
+  </main>
 
+  <!-- SIMPLE PASSWORD SCRIPT (FRONT-END GATE ONLY) -->
   <script>
-    // Password gate logic
-    function unlockPremium() {
-      const input = document.getElementById("pwInput");
-      const error = document.getElementById("gateError");
-      const gate = document.getElementById("gate");
-      const premium = document.getElementById("premium");
+    (function () {
+      const form = document.getElementById('vault-form');
+      const input = document.getElementById('vault-password');
+      const error = document.getElementById('vault-error');
+      const accessSection = document.querySelector('.vault-access');
+      const contentSection = document.querySelector('.vault-content');
 
-      const entered = (input.value || "").trim().toLowerCase();
-      const correct = "cometome"; // your chosen password
+      if (!form || !input || !accessSection || !contentSection) return;
 
-      if (!entered) {
-        error.textContent = "Whisper something to me first.";
-        error.style.opacity = 1;
-        return;
-      }
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const value = (input.value || '').trim();
 
-      if (entered === correct) {
-        error.textContent = "";
-        error.style.opacity = 0;
-        gate.style.display = "none";
-        premium.style.display = "block";
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      } else {
-        error.textContent = "Mm… not quite. Try again, love.";
-        error.style.opacity = 1;
-      }
-    }
+        // 🔐 CURRENT PASSWORD (you can change this anytime)
+        const CORRECT_PASSWORD = 'cometome';
 
-    // Allow Enter key to submit
-    document.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") {
-        const gate = document.getElementById("gate");
-        if (gate && gate.style.display !== "none") {
-          unlockPremium();
+        if (value === CORRECT_PASSWORD) {
+          error.textContent = '';
+          accessSection.style.display = 'none';
+          contentSection.style.display = 'block';
+          contentSection.setAttribute('aria-hidden', 'false');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          error.textContent = 'Incorrect password. Please try again.';
         }
-      }
-    });
+      });
+    })();
   </script>
+
 </body>
 </html>
