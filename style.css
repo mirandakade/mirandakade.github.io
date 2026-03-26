@@ -904,3 +904,7 @@
   background: rgba(180, 120, 255, 0.08);
   box-shadow: 0 0 14px rgba(180, 120, 255, 0.16);
 }
+
+html {
+  scroll-behavior: smooth;
+}
