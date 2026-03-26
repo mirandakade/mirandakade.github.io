@@ -791,3 +791,41 @@
     text-align: center;
   }
 }
+
+.vault-offer-card {
+  margin-top: 28px;
+  padding: 28px 24px;
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(58, 34, 92, 0.94), rgba(22, 12, 36, 0.96));
+  border: 1px solid rgba(196, 136, 255, 0.35);
+  box-shadow: 0 0 24px rgba(181, 108, 255, 0.18);
+  text-align: left;
+}
+
+.vault-offer-card h2 {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.vault-offer-card p {
+  margin-bottom: 16px;
+  line-height: 1.7;
+}
+
+.vault-price-callout {
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: rgba(181, 108, 255, 0.10);
+  border: 1px solid rgba(213, 171, 255, 0.32);
+}
+
+.vault-cta-btn {
+  display: inline-block;
+  padding: 12px 22px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(180deg, #c38cff, #9d5eff);
+  box-shadow: 0 0 14px rgba(184, 116, 255, 0.35);
+}
