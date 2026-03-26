@@ -865,8 +865,9 @@
 
 .vault-cta-row {
   display: flex;
-  gap: 12px;
+  gap: 14px;
   justify-content: center;
+  margin-top: 20px;
   flex-wrap: wrap;
 }
 
