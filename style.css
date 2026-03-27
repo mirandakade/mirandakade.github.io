@@ -946,7 +946,7 @@ a.mk-button:visited {
   border-radius: 10px !important;
   border: none !important;
   cursor: pointer !important;
-  box-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 40px rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.7), 0 0 30px rgba(212, 175, 55, 0.5);
 }
 
 a.mk-button:hover,
