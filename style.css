@@ -929,23 +929,31 @@ html {
   line-height: 1.6;
 }
 
-.mk-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 12px 24px;
-  background: #d4af37;
-  color: #000;
-  text-decoration: none;
-  font-weight: bold;
-  border-radius: 8px;
-  transition: 0.3s ease;
+
+.mk-button,
+a.mk-button,
+a.mk-button:link,
+a.mk-button:visited {
+  display: inline-block !important;
+  margin-top: 25px !important;
+  padding: 14px 26px !important;
+  background: linear-gradient(135deg, #a855f7, #d4af37) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  font-weight: 700 !important;
+  font-size: 16px !important;
+  line-height: 1.2 !important;
+  border-radius: 10px !important;
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.6) !important;
+  border: none !important;
+  cursor: pointer !important;
 }
 
-.mk-button:hover {
-  background: #f1d675;
+a.mk-button:hover,
+a.mk-button:focus {
+  background: linear-gradient(135deg, #9333ea, #f1d675) !important;
+  color: #ffffff !important;
+  text-decoration: none !important;
+  transform: scale(1.03);
 }
 
-
-.mk-button {
-  margin-top: 25px;
-}
