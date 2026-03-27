@@ -908,3 +908,39 @@
 html {
   scroll-behavior: smooth;
 }
+
+
+.mk-custom-voice {
+  background: #0f0f0f;
+  padding: 30px;
+  border-radius: 12px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.mk-custom-voice h2 {
+  color: #d4af37;
+  margin-bottom: 15px;
+}
+
+.mk-custom-voice p {
+  color: #e0e0e0;
+  margin: 10px 0;
+  line-height: 1.6;
+}
+
+.mk-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #d4af37;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.mk-button:hover {
+  background: #f1d675;
+}
