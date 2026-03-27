@@ -944,9 +944,9 @@ a.mk-button:visited {
   font-size: 16px !important;
   line-height: 1.2 !important;
   border-radius: 10px !important;
-  box-shadow: 0 0 15px rgba(168, 85, 247, 0.6) !important;
   border: none !important;
   cursor: pointer !important;
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.8), 0 0 40px rgba(212, 175, 55, 0.6);
 }
 
 a.mk-button:hover,
@@ -957,3 +957,13 @@ a.mk-button:focus {
   transform: scale(1.03);
 }
 
+
+@keyframes pulseGlow {
+  0% { box-shadow: 0 0 10px rgba(168,85,247,0.6); }
+  50% { box-shadow: 0 0 25px rgba(212,175,55,0.9); }
+  100% { box-shadow: 0 0 10px rgba(168,85,247,0.6); }
+}
+
+a.mk-button {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
