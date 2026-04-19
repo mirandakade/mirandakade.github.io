@@ -988,11 +988,16 @@ a.mk-button {
 }
 
 .section {
-  max-width: 760px;
+  max-width: 680px;
   margin: 0 auto 28px;
   line-height: 1.75;
 }
 
-
+.come-closer {
+  margin: 18px 0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
 
