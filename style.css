@@ -1003,18 +1003,12 @@ a.mk-button {
 
 
 .vault-button {
-  display: inline-block;
-  padding: 16px 36px;
-  font-size: 16px;
-  color: #ffffff;
-  background: linear-gradient(135deg, #6a0dad, #b266ff);
-  border: none;
-  border-radius: 999px; /* THIS forces the oval shape */
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.7px;
-  box-shadow: 0 0 20px rgba(178, 102, 255, 0.7);
-  transition: all 0.3s ease;
+  display: inline-block !important;
+  padding: 16px 36px !important;
+  background: linear-gradient(135deg, #6a0dad, #b266ff) !important;
+  border-radius: 999px !important;
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
 .vault-button:hover {
