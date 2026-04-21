@@ -1004,22 +1004,21 @@ a.mk-button {
 
 .vault-button {
   display: inline-block;
-  padding: 14px 30px;
+  padding: 16px 34px;
   font-size: 16px;
   color: #ffffff;
-  background: rgba(178, 102, 255, 0.2);
-  border: 1px solid rgba(178, 102, 255, 0.6);
-  border-radius: 30px;
+  background: rgba(178, 102, 255, 0.25);
+  border: 1px solid rgba(178, 102, 255, 0.7);
+  border-radius: 40px;
   text-decoration: none;
   font-weight: 600;
-  letter-spacing: 0.6px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 0 18px rgba(178, 102, 255, 0.6);
+  letter-spacing: 0.7px;
+  box-shadow: 0 0 20px rgba(178, 102, 255, 0.7);
   transition: all 0.3s ease;
 }
 
 .vault-button:hover {
-  background: rgba(178, 102, 255, 0.35);
-  box-shadow: 0 0 28px rgba(178, 102, 255, 1);
-  transform: scale(1.06);
+  background: rgba(178, 102, 255, 0.4);
+  box-shadow: 0 0 35px rgba(178, 102, 255, 1);
+  transform: scale(1.07);
 }
